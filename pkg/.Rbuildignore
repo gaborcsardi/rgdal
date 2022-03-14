@@ -3,3 +3,4 @@ svn2cl.*
 _pkgdown.yml
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^windows$
