@@ -44,5 +44,5 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           working-directory: 'pkg'
-          args: '"--ignore-vignettes"'
-          build_args: '"--ignore-vignettes"'
+          args: '"--no-build-vignettes"'
+          build_args: '"--no-build-vignettes"'
