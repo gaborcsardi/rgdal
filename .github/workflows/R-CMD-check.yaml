@@ -44,5 +44,5 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           working-directory: 'pkg'
-          args: '"--no-build-vignettes --no-manual"'
-          build_args: '"--no-build-vignettes --no-manual"'
+          args: 'c("--no-build-vignettes", "--no-manual")'
+          build_args: 'c("--no-build-vignettes", "--no-manual")'
