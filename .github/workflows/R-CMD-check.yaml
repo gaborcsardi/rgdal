@@ -40,6 +40,7 @@ jobs:
         with:
           extra-packages: rcmdcheck
           working-directory: 'pkg'
+          pak-version: rc
 
       - uses: r-lib/actions/check-r-package@v2
         with:
