@@ -16,10 +16,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
-#          - {os: windows-latest, r: 'devel'}
-#          - {os: windows-latest, r: '4.1'}
+          - {os: windows-latest, r: 'devel'}
+          - {os: windows-latest, r: '4.1'}
           - {os: windows-latest, r: '3.6'}
-#          - {os: ubuntu-latest,   r: 'release'}
+          - {os: ubuntu-latest,  r: 'release'}
+          - {os: ubuntu-latest,  r: '3.6'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -34,7 +35,7 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
-          use-public-rspm: false
+          use-public-rspm: ${{ matrix.config.os == 'windows-latest' && matrix.config.r == '3.6' }}
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
