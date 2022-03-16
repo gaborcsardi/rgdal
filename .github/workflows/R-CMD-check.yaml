@@ -38,10 +38,17 @@ jobs:
           use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v2
+        if: ${{ runner.os == 'Windows' && matrix.config.r == '3.6' }}
         with:
           extra-packages: any::rcmdcheck
           working-directory: 'pkg'
           pak-version: rc
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        if: ${{ runner.os != 'Windows' || matrix.config.r != '3.6' }}
+        with:
+          extra-packages: any::rcmdcheck
+          working-directory: 'pkg'
 
       - uses: r-lib/actions/check-r-package@v2
         with:
